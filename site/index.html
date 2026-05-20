@@ -4,60 +4,74 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Voetbalspel — voorspel, scoor, win</title>
-  <meta name="description" content="Mobielvriendelijke website voor een voetbalvoorspelspel met voorspellingen, puntentelling, ranglijsten, admin en prijzenkast." />
+  <meta name="description" content="Minimalistische website voor een voetbalvoorspelspel met voorspellingen, ranglijsten, admin en prijzenkast." />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="pixel-bg">
-  <header class="site-header" data-view="home">
+<body>
+  <header class="site-header">
     <a class="brand" href="#home" aria-label="Voetbalspel home">
-      <span class="brand-mark" aria-hidden="true">VS</span>
-      <span>Voetbalspel</span>
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M7 31c6-13 13-20 21-20 7 0 12 5 13 15-3-4-7-6-12-6-7 0-13 4-22 11Z" />
+        <path d="M10 35c8-7 16-10 25-10 3 0 5 .3 7 1-5 8-12 12-21 12-4 0-8-1-11-3Z" />
+      </svg>
+      <span>voetbalspel</span>
     </a>
+
     <nav class="main-nav" aria-label="Hoofdnavigatie">
       <a href="#dashboard">Spelen</a>
       <a href="#ranglijst">Stand</a>
       <a href="#prijzenkast">Bekers</a>
       <a href="#updates">Updates</a>
-      <a href="#admin" class="admin-link">Admin</a>
+      <a href="#admin">Admin</a>
     </nav>
-    <div class="header-actions">
-      <button class="button-secondary compact" data-action="open-auth" data-mode="login">Login</button>
-      <button class="button-primary compact" data-action="open-auth" data-mode="register">Start</button>
-    </div>
+
+    <button class="menu-button" type="button" data-action="toggle-menu" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
   </header>
 
   <main id="app">
     <section id="home" class="view hero-view" data-route>
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="kicker">Weekendpool · vrienden · competitie</p>
-          <h1 class="display-title">Voorspel. Scoor. Win.</h1>
-          <p class="lede">Een eenvoudige maar aantrekkelijke voetbalpool waar spelers voorspellingen invullen, jij uitslagen beheert en de ranglijst automatisch meeloopt.</p>
+      <div class="hero-shell">
+        <div class="hero-wordmark" aria-hidden="true">
+          <span>De</span><span>Pool</span>
+        </div>
+
+        <div class="hero-module">
+          <p class="kicker">Voetbalpool · vrienden · competitie</p>
+          <h1>Een rustige plek voor elk weekendvoorspel.</h1>
+          <p class="lede">Spelers vullen hun scores in, de beheerder zet de uitslagen klaar en de ranglijst schuift vanzelf mee.</p>
           <div class="cta-row">
-            <a class="button-primary" href="#dashboard">Doe mee</a>
+            <a class="button-primary" href="#dashboard">Start spelen</a>
             <a class="button-secondary" href="#ranglijst">Bekijk stand</a>
           </div>
         </div>
-        <aside class="scoreboard card" aria-label="Live voorbeeld scorebord">
-          <div class="scoreboard-head">
-            <span>Deze week</span>
-            <span class="badge">Ronde 12</span>
+
+        <aside class="orbit-panel" aria-label="Live voorbeeld scorebord">
+          <div class="orbit" aria-hidden="true">
+            <span class="node node-a"></span>
+            <span class="node node-b"></span>
+            <span class="node node-c"></span>
+            <span class="node node-d"></span>
           </div>
-          <div id="heroMatches" class="scoreboard-list"></div>
+          <div class="score-strip">
+            <div class="score-strip__head"><span>Deze week</span><span>Ronde 12</span></div>
+            <div id="heroMatches" class="scoreboard-list"></div>
+          </div>
         </aside>
       </div>
     </section>
 
-    <section id="dashboard" class="view container page-stack" data-route hidden>
-      <header class="section-intro card card-accent">
-        <p class="kicker">Workbench</p>
+    <section id="dashboard" class="view page-shell page-stack" data-route hidden>
+      <header class="section-intro">
+        <p class="kicker">Spelen</p>
         <h2>Vul je voorspellingen in.</h2>
         <p>Login als demo-speler en zet per wedstrijd een thuis- en uit-score. De website bewaart alles lokaal in deze browser.</p>
       </header>
       <div class="dashboard-grid">
-        <section class="card player-panel">
+        <section class="player-panel panel">
           <div class="panel-top">
-            <span class="badge">Ingelogd als</span>
+            <span class="tag">Ingelogd als</span>
             <strong id="activeUserLabel">Demo speler</strong>
           </div>
           <div class="player-stat">
@@ -70,10 +84,10 @@
       </div>
     </section>
 
-    <section id="ranglijst" class="view container page-stack" data-route hidden>
+    <section id="ranglijst" class="view page-shell page-stack" data-route hidden>
       <header class="section-title-row">
         <div>
-          <p class="kicker">Scoreboard</p>
+          <p class="kicker">Stand</p>
           <h2>Ranglijsten</h2>
         </div>
         <div class="tabs" role="tablist" aria-label="Ranglijst periode">
@@ -82,11 +96,11 @@
           <button class="tab" role="tab" aria-selected="false" data-period="overall">Algemeen</button>
         </div>
       </header>
-      <div class="leaderboard card" id="leaderboard"></div>
+      <div class="leaderboard panel" id="leaderboard"></div>
     </section>
 
-    <section id="admin" class="view container page-stack" data-route hidden>
-      <header class="section-intro card">
+    <section id="admin" class="view page-shell page-stack" data-route hidden>
+      <header class="section-intro">
         <p class="kicker">Beheerder</p>
         <h2>Uitslagen invoeren.</h2>
         <p>Voer per wedstrijd de echte uitslag in. De puntentelling wordt daarna direct opnieuw berekend voor week, maand en algemeen.</p>
@@ -94,10 +108,10 @@
       <section class="admin-board" id="adminBoard" aria-label="Admin uitslagenpaneel"></section>
     </section>
 
-    <section id="updates" class="view container page-stack" data-route hidden>
+    <section id="updates" class="view page-shell page-stack" data-route hidden>
       <header class="section-title-row">
         <div>
-          <p class="kicker">Nieuws</p>
+          <p class="kicker">Updates</p>
           <h2>Artikelen en updates</h2>
         </div>
         <a class="button-secondary compact" href="#home">Terug</a>
@@ -105,26 +119,23 @@
       <div class="article-grid" id="articleGrid"></div>
     </section>
 
-    <section id="prijzenkast" class="view container page-stack" data-route hidden>
-      <header class="section-intro card violet-card">
+    <section id="prijzenkast" class="view page-shell page-stack" data-route hidden>
+      <header class="section-intro orange-field">
         <p class="kicker">Prijzenkast</p>
         <h2>Winnaars in beeld.</h2>
-        <p>Een visuele prijzenkast voor weekwinnaars, maandwinnaars en de algemene kampioen.</p>
+        <p>Een sobere prijzenkast voor weekwinnaars, maandwinnaars en de algemene kampioen.</p>
       </header>
       <div class="trophy-grid" id="trophyGrid"></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="marquee" aria-hidden="true"><span>VOORSPEL · SCOOR · WIN · RANGELIJST · PRIJZENKAST · </span><span>VOORSPEL · SCOOR · WIN · RANGELIJST · PRIJZENKAST · </span></div>
-    <div class="footer-row container">
-      <span>Prototype voor voetbalvoorspelspel</span>
-      <a href="#dashboard">Start spelen</a>
-    </div>
+    <span>voetbalspel</span>
+    <a href="#dashboard">Start spelen</a>
   </footer>
 
   <dialog id="authDialog" class="auth-dialog">
-    <form method="dialog" class="auth-card card">
+    <form method="dialog" class="auth-card panel">
       <button class="dialog-close" value="cancel" aria-label="Sluiten">×</button>
       <p class="kicker" id="authModeLabel">Login</p>
       <h2 id="authTitle">Welkom terug</h2>
