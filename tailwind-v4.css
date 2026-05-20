@@ -1,0 +1,48 @@
+/* Hallmark · macrostructure: Workbench · genre: playful · theme: studied-DNA (source: Refero Caldera) */
+@import "tailwindcss";
+
+@theme {
+  --color-basalt-canvas: #e2e2df;
+  --color-ash-white: #f7f6f2;
+  --color-abyssal-ink: #070607;
+  --color-pure-white: #ffffff;
+  --color-digital-orange: #fc5000;
+  --color-accent-ink: #070607;
+  --color-cyber-violet: #524ae9;
+  --color-pixel-glare: #f5f28e;
+  --color-pitch-green: #196f3d;
+
+  --font-display: "PP Neue Corp Compact Ultrabold", "Bebas Neue", Impact, sans-serif;
+  --font-body: "DM Sans", Inter, system-ui, sans-serif;
+
+  --text-body-sm: 14px;
+  --text-body: 16px;
+  --text-subheading: 30px;
+  --text-heading-sm: 32px;
+  --text-heading: 56px;
+  --text-display: 96px;
+
+  --radius-card: 40px;
+  --radius-default: 40px;
+  --radius-input: 100px;
+  --radius-button: 800px;
+
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+}
+
+@utility pixel-bg {
+  background-color: var(--color-basalt-canvas);
+  background-image: radial-gradient(rgba(7, 6, 7, 0.14) 1px, transparent 1px);
+  background-size: 8px 8px;
+}

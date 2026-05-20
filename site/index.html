@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voetbalspel — voorspel, scoor, win</title>
+  <meta name="description" content="Mobielvriendelijke website voor een voetbalvoorspelspel met voorspellingen, puntentelling, ranglijsten, admin en prijzenkast." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="pixel-bg">
+  <header class="site-header" data-view="home">
+    <a class="brand" href="#home" aria-label="Voetbalspel home">
+      <span class="brand-mark" aria-hidden="true">VS</span>
+      <span>Voetbalspel</span>
+    </a>
+    <nav class="main-nav" aria-label="Hoofdnavigatie">
+      <a href="#dashboard">Spelen</a>
+      <a href="#ranglijst">Stand</a>
+      <a href="#prijzenkast">Bekers</a>
+      <a href="#updates">Updates</a>
+      <a href="#admin" class="admin-link">Admin</a>
+    </nav>
+    <div class="header-actions">
+      <button class="button-secondary compact" data-action="open-auth" data-mode="login">Login</button>
+      <button class="button-primary compact" data-action="open-auth" data-mode="register">Start</button>
+    </div>
+  </header>
+
+  <main id="app">
+    <section id="home" class="view hero-view" data-route>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Weekendpool · vrienden · competitie</p>
+          <h1 class="display-title">Voorspel. Scoor. Win.</h1>
+          <p class="lede">Een eenvoudige maar aantrekkelijke voetbalpool waar spelers voorspellingen invullen, jij uitslagen beheert en de ranglijst automatisch meeloopt.</p>
+          <div class="cta-row">
+            <a class="button-primary" href="#dashboard">Doe mee</a>
+            <a class="button-secondary" href="#ranglijst">Bekijk stand</a>
+          </div>
+        </div>
+        <aside class="scoreboard card" aria-label="Live voorbeeld scorebord">
+          <div class="scoreboard-head">
+            <span>Deze week</span>
+            <span class="badge">Ronde 12</span>
+          </div>
+          <div id="heroMatches" class="scoreboard-list"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="dashboard" class="view container page-stack" data-route hidden>
+      <header class="section-intro card card-accent">
+        <p class="kicker">Workbench</p>
+        <h2>Vul je voorspellingen in.</h2>
+        <p>Login als demo-speler en zet per wedstrijd een thuis- en uit-score. De website bewaart alles lokaal in deze browser.</p>
+      </header>
+      <div class="dashboard-grid">
+        <section class="card player-panel">
+          <div class="panel-top">
+            <span class="badge">Ingelogd als</span>
+            <strong id="activeUserLabel">Demo speler</strong>
+          </div>
+          <div class="player-stat">
+            <span id="activeUserPoints">0</span>
+            <small>punten totaal</small>
+          </div>
+          <button class="button-secondary" data-action="open-auth" data-mode="login">Wissel speler</button>
+        </section>
+        <section class="prediction-list" id="predictionList" aria-label="Wedstrijdvoorspellingen"></section>
+      </div>
+    </section>
+
+    <section id="ranglijst" class="view container page-stack" data-route hidden>
+      <header class="section-title-row">
+        <div>
+          <p class="kicker">Scoreboard</p>
+          <h2>Ranglijsten</h2>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Ranglijst periode">
+          <button class="tab active" role="tab" aria-selected="true" data-period="week">Week</button>
+          <button class="tab" role="tab" aria-selected="false" data-period="month">Maand</button>
+          <button class="tab" role="tab" aria-selected="false" data-period="overall">Algemeen</button>
+        </div>
+      </header>
+      <div class="leaderboard card" id="leaderboard"></div>
+    </section>
+
+    <section id="admin" class="view container page-stack" data-route hidden>
+      <header class="section-intro card">
+        <p class="kicker">Beheerder</p>
+        <h2>Uitslagen invoeren.</h2>
+        <p>Voer per wedstrijd de echte uitslag in. De puntentelling wordt daarna direct opnieuw berekend voor week, maand en algemeen.</p>
+      </header>
+      <section class="admin-board" id="adminBoard" aria-label="Admin uitslagenpaneel"></section>
+    </section>
+
+    <section id="updates" class="view container page-stack" data-route hidden>
+      <header class="section-title-row">
+        <div>
+          <p class="kicker">Nieuws</p>
+          <h2>Artikelen en updates</h2>
+        </div>
+        <a class="button-secondary compact" href="#home">Terug</a>
+      </header>
+      <div class="article-grid" id="articleGrid"></div>
+    </section>
+
+    <section id="prijzenkast" class="view container page-stack" data-route hidden>
+      <header class="section-intro card violet-card">
+        <p class="kicker">Prijzenkast</p>
+        <h2>Winnaars in beeld.</h2>
+        <p>Een visuele prijzenkast voor weekwinnaars, maandwinnaars en de algemene kampioen.</p>
+      </header>
+      <div class="trophy-grid" id="trophyGrid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="marquee" aria-hidden="true"><span>VOORSPEL · SCOOR · WIN · RANGELIJST · PRIJZENKAST · </span><span>VOORSPEL · SCOOR · WIN · RANGELIJST · PRIJZENKAST · </span></div>
+    <div class="footer-row container">
+      <span>Prototype voor voetbalvoorspelspel</span>
+      <a href="#dashboard">Start spelen</a>
+    </div>
+  </footer>
+
+  <dialog id="authDialog" class="auth-dialog">
+    <form method="dialog" class="auth-card card">
+      <button class="dialog-close" value="cancel" aria-label="Sluiten">×</button>
+      <p class="kicker" id="authModeLabel">Login</p>
+      <h2 id="authTitle">Welkom terug</h2>
+      <label>Naam
+        <input id="authName" type="text" autocomplete="name" placeholder="Bijv. Pim" />
+      </label>
+      <label>E-mail
+        <input id="authEmail" type="email" autocomplete="email" placeholder="naam@example.nl" />
+      </label>
+      <label class="checkbox-line">
+        <input id="authAdmin" type="checkbox" />
+        Ik ben beheerder
+      </label>
+      <button class="button-primary" data-action="save-auth" value="default">Verder</button>
+      <p class="small-note">Demo-auth: lokaal prototype, geen echte accountdatabase.</p>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

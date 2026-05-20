@@ -1,0 +1,95 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "name": "Voetbalspel Caldera",
+  "color": {
+    "basaltCanvas": {
+      "$type": "color",
+      "$value": "#e2e2df"
+    },
+    "ashWhite": {
+      "$type": "color",
+      "$value": "#f7f6f2"
+    },
+    "abyssalInk": {
+      "$type": "color",
+      "$value": "#070607"
+    },
+    "pureWhite": {
+      "$type": "color",
+      "$value": "#ffffff"
+    },
+    "digitalOrange": {
+      "$type": "color",
+      "$value": "#fc5000"
+    },
+    "cyberViolet": {
+      "$type": "color",
+      "$value": "#524ae9"
+    },
+    "pixelGlare": {
+      "$type": "color",
+      "$value": "#f5f28e"
+    },
+    "pitchGreen": {
+      "$type": "color",
+      "$value": "#196f3d"
+    }
+  },
+  "font": {
+    "display": {
+      "$type": "fontFamily",
+      "$value": "PP Neue Corp Compact Ultrabold, Bebas Neue, Impact, sans-serif"
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": "DM Sans, Inter, system-ui, sans-serif"
+    }
+  },
+  "dimension": {
+    "radiusCard": {
+      "$type": "dimension",
+      "$value": "40px"
+    },
+    "radiusInput": {
+      "$type": "dimension",
+      "$value": "100px"
+    },
+    "radiusButton": {
+      "$type": "dimension",
+      "$value": "800px"
+    },
+    "cardPadding": {
+      "$type": "dimension",
+      "$value": "40px"
+    },
+    "sectionGap": {
+      "$type": "dimension",
+      "$value": "40px"
+    },
+    "elementGap": {
+      "$type": "dimension",
+      "$value": "10px"
+    }
+  },
+  "typography": {
+    "display": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.display}",
+        "fontSize": "96px",
+        "fontWeight": "400",
+        "lineHeight": "0.94",
+        "letterSpacing": "0.02em"
+      }
+    },
+    "body": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.body}",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "lineHeight": "1.55"
+      }
+    }
+  }
+}

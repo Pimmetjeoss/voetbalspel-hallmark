@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-05-20T20:42:26.439612+00:00",
+  "project": "/home/pimmetje/.hermes/profiles/cli/workspace/projects/voetbalspel-hallmark",
+  "findings": {
+    "design_md": "DESIGN.md present; locked design system derived from Refero Caldera for voetbalspel.",
+    "font_stack": "Display: PP Neue Corp Compact Ultrabold/Bebas Neue/Impact; Body: DM Sans/Inter/system-ui.",
+    "palette": "Caldera tokens + pitch-green extension.",
+    "framework": "No implementation framework yet; exports are framework-agnostic with Tailwind v4 theme file.",
+    "motion": "motion-cut; no animation library assumed.",
+    "spacing": "4/8/10/12/16/20/24/32/40/48/64/80 px scale."
+  },
+  "hallmark": {
+    "genre": "playful",
+    "macrostructure": "Workbench",
+    "theme": "studied-DNA (Refero Caldera)",
+    "nav": "N7 brutal slab",
+    "footer": "Ft8 marquee scroll",
+    "scores": {
+      "Philosophy": 5,
+      "Hierarchy": 5,
+      "Execution": 4,
+      "Specificity": 5,
+      "Restraint": 4,
+      "Variety": 5
+    },
+    "slop_test": {
+      "contrast_pairs": {
+        "ink on ash white": 18.71,
+        "ink on basalt canvas": 15.58,
+        "ink on orange CTA": 6.06,
+        "ink on glare": 17.31,
+        "white on violet": 5.97
+      },
+      "status": "pass for design handoff; implementation must re-check rendered pages at 320/375/414/768px"
+    }
+  }
+}
